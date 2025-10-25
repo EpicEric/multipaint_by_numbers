@@ -1,0 +1,44 @@
+[package]
+authors = ["Eric Rodrigues Pires <eric@eric.dev.br>"]
+description = "A multiplayer Picross/Nonogram for Sandhole."
+name = "multipaint_by_numbers"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[dependencies]
+anyhow = "1.0.86"
+async-trait = "0.1"
+axum = "0.7.5"
+axum-macros = "0.4.1"
+bitvec = "1.0.1"
+clap = { version = "4.5.17", features = ["derive"] }
+futures = "0.3.30"
+hyper = { version = "1", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+maud = { version = "0.26.0", features = ["axum"] }
+openssl = { version = "0.10.73", features = ["vendored"] }
+rand = "0.8.5"
+random_color = "0.8.0"
+regex = "1.10.6"
+reqwest = { version = "0.12.24", default-features = false, features = [
+  "charset",
+  "http2",
+  "rustls-tls-manual-roots",
+] }
+russh = "0.45"
+rustls = "0.23.32"
+serde = { version = "1.0.210", features = ["derive"] }
+termsize = "0.1.9"
+tokio = { version = "1", features = ["full"] }
+tokio-stream = { version = "0.1.15", features = ["net", "sync"] }
+tokio-util = "0.7.11"
+tower = "0.5.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3.18", features = [
+  "fmt",
+  "env-filter",
+  "std",
+] }
+webpki-roots = "1"
