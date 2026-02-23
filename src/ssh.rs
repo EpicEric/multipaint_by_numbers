@@ -1,6 +1,6 @@
 use std::{iter, path::PathBuf, sync::Arc, time::Duration};
 
-use anyhow::{anyhow, Context, Result};
+use anyhow::{Context, Result, anyhow};
 use async_trait::async_trait;
 use axum::extract::Request;
 use hyper::{body::Incoming, service::service_fn};
@@ -9,16 +9,16 @@ use hyper_util::{
     server::conn::auto::Builder,
 };
 use russh::{
+    Channel, ChannelId, ChannelMsg, Disconnect,
     client::{self, Config, Handle, Msg, Session},
     keys::{
         decode_secret_key,
         key::{self, KeyPair},
     },
-    Channel, ChannelId, ChannelMsg, Disconnect,
 };
 use tokio::{
     fs,
-    io::{stderr, stdout, AsyncWriteExt},
+    io::{AsyncWriteExt, stderr, stdout},
     time::sleep,
 };
 use tower::Service;

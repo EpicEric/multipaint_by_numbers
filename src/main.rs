@@ -23,7 +23,7 @@ struct MainEntrypointArgs {
     #[arg(short, long, default_value_t = 22)]
     port: u16,
 
-    /// Identity file containing private key.
+    /// SSH user to login as.
     #[arg(short, long, default_value_t = String::from(""))]
     login_name: String,
 
