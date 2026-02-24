@@ -123,7 +123,7 @@ impl TcpForwardSession {
                 Err(err) => {
                     debug!(err = ?err, "Unable to connect to remote host.");
                     let Some(duration) = timer_iterator.next() else {
-                        debug!(attempts = attempts, "Failed to recconect.");
+                        debug!(attempts = attempts, "Failed to reconnect.");
                         return Err(anyhow!("Gave up graceful reconnection."));
                     };
                     sleep(duration).await;

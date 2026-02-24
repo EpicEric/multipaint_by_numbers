@@ -40,7 +40,7 @@ struct MainEntrypointArgs {
     remote_port: u16,
 
     /// Request a pseudo-terminal to be allocated with the given command.
-    #[arg(long)]
+    #[arg(short = 't', long)]
     request_pty: Option<String>,
 }
 

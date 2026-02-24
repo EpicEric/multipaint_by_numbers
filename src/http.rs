@@ -23,7 +23,7 @@ use tokio::{
     task::JoinHandle,
     time::{Instant, sleep},
 };
-use tracing::{debug, warn};
+use tracing::{debug, error};
 
 use crate::nonogram::nonogrammed::{NONOGRAMMED_PUZZLE_LIST, NonogrammedPuzzle, get_puzzle_data};
 
@@ -683,7 +683,7 @@ async fn unmark_checkbox(
 async fn get_puzzle(puzzle_id: u32) -> Result<NonogrammedPuzzle> {
     match get_puzzle_data(puzzle_id).await {
         Err(e) => {
-            warn!(error = ?e, id = puzzle_id, "Invalid puzzle.");
+            error!(error = ?e, id = puzzle_id, "Invalid puzzle.");
             Err(e)
         }
         Ok(puzzle) => {
